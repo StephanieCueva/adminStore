@@ -9,6 +9,7 @@ import { UsersRoutingModule } from './users-routing.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HighchartsChartModule } from 'highcharts-angular';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -23,6 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     UsersRoutingModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    HighchartsChartModule,
   ],
   entryComponents: [UserComponent],
 })

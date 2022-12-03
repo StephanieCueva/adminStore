@@ -80,8 +80,6 @@ export class ListComponent {
   }
 
   onCreate(user?: User) {
-    console.log('user', user);
-
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
