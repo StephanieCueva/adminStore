@@ -8,7 +8,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserComponent } from '../user/user.component';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -47,22 +47,49 @@ export class ListComponent {
     this.getAll();
   }
   onSubmitUser() {
-    console.log('User created');
-    console.log(this.formulario.value);
-    this.userService.addUser(this.formulario.value);
+    Swal.fire({
+      title: '¿Está seguro que desea agregar este registro?',
+      text: 'Esta operación es irreversible',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Agregar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.addUser(this.formulario.value);
+        Swal.fire(
+          'Usuario agregado!',
+          'El usuario fue registrado con éxito',
+          'success'
+        );
+      }
+    });
   }
   getAll() {
     this.userService.getUsers().subscribe((data: User[]) => {
       this.users.data = data;
-      //console.log(this.users);
     });
   }
   deleteUser(user: User) {
-    let decision = confirm('Are you sure?');
-    if (decision === true) {
-      console.log('eliminando');
-      this.userService.deleteUser(user);
-    }
+    Swal.fire({
+      title: '¿Está seguro que desea eliminar este registro?',
+      text: 'Esta operación es irreversible',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.deleteUser(user);
+        Swal.fire(
+          'Eliminado!',
+          'El registro fue eliminado con éxito',
+          'success'
+        );
+      }
+    });
   }
 
   ngAfterViewInit() {

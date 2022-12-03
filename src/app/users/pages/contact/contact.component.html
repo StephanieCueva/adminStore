@@ -1,0 +1,109 @@
+<div class="container">
+  <mat-toolbar>
+    <span>Contacto</span>
+  </mat-toolbar>
+</div>
+<br />
+<div class="contacto">
+  <form [formGroup]="contactForm" (ngSubmit)="enviar()">
+    <div class="imagen">
+      <img
+        src="https://raw.githubusercontent.com/Manuel486/Store_Mega/main/images/logo.png"
+        width="30%"
+      />
+    </div>
+    <h2>Contactanos!</h2>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label>Usuario</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="usuario"
+        [ngClass]="{ 'is-invalid': contactForm.get('usuario')!.errors }"
+      />
+      <div *ngIf="contactForm.get('usuario')!.errors" class="invalid-feedback">
+        <div
+          *ngIf="
+            contactForm.get('usuario')!.touched && contactForm.get('usuario')!;
+            haserror: 'required'
+          "
+        >
+          Este campo es requerido
+        </div>
+        <div
+          *ngIf="
+            contactForm.get('usuario')!.touched && contactForm.get('usuario')!;
+            haserror: 'minlength'
+          "
+        >
+          Minimo 4 caracteres
+        </div>
+      </div>
+    </mat-form-field>
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label>E-mail</mat-label>
+      <input
+        type="email"
+        matInput
+        formControlName="correo"
+        [ngClass]="{ 'is-invalid': contactForm.get('correo')!.errors }"
+      />
+      <div *ngIf="contactForm.get('correo')!.errors" class="invalid-feedback">
+        <div
+          *ngIf="
+            contactForm.get('correo')!.touched && contactForm.get('correo')!;
+            haserror: 'required'
+          "
+        >
+          Este campo es requerido
+        </div>
+        <div
+          *ngIf="
+            contactForm.get('correo')!.touched && contactForm.get('correo')!;
+            haserror: 'pattern'
+          "
+        >
+          Formato invalido
+        </div>
+      </div>
+    </mat-form-field>
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label>Mensaje</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="mensaje"
+        [ngClass]="{ 'is-invalid': contactForm.get('mensaje')!.errors }"
+      />
+      <div *ngIf="contactForm.get('mensaje')!.errors" class="invalid-feedback">
+        <div
+          *ngIf="
+            contactForm.get('mensaje')!.touched && contactForm.get('mensaje')!;
+            haserror: 'required'
+          "
+        >
+          Este campo es requerido
+        </div>
+        <div
+          *ngIf="
+            contactForm.get('mensaje')!.touched && contactForm.get('mensaje')!;
+            haserror: 'maxlength'
+          "
+        >
+          Maximo 500 caracteres
+        </div>
+      </div>
+    </mat-form-field>
+    <br />
+    <button
+      type="submit"
+      mat-raised-button
+      [disabled]="contactForm.invalid"
+      class="ancho"
+      style="background-color: #ff9138; color: #fff"
+    >
+      enviar
+    </button>
+  </form>
+</div>

@@ -24,7 +24,7 @@ export class UsersService {
       .collection('users')
       .add(user)
       .then(() => {
-        alert('guardado' + user);
+        console.log('Usuario creado');
       });
   }
   getUsers() {
@@ -44,11 +44,7 @@ export class UsersService {
 
   editUser(user: User, id: string | any) {
     console.log('editando', user);
-    // const docRef = doc(this.firestore, 'usuarios', id);
-    // return setDoc(docRef, user, { merge: true });
     return this.afs.collection('users').doc(id).update(user);
-
-    //return this.afs.collection('users').doc(user.id).update(user);
   }
 
   getUserEmail(email: string) {

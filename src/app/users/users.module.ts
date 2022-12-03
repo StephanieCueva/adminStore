@@ -10,6 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { ContactComponent } from './pages/contact/contact.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -17,6 +18,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
     SearchComponent,
     UserComponent,
     DashboardComponent,
+    ContactComponent,
   ],
   imports: [
     CommonModule,
