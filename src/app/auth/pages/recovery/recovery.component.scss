@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-image: url("../../../../assets/img/fondo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.logo {
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.body {
+  width: 100%;
+  max-width: 330px;
+  margin: auto;
+  padding: 15px;
+  text-align: center;
+}
+
+.ancho {
+  width: 100%;
+}
+
+button {
+  background-color: #f46c00 !important;
+}
+
+.letra-recuperar {
+  color: #fff;
+}
+
+a {
+  color: #000;
+}

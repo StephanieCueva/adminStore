@@ -1,0 +1,99 @@
+<!-- <mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field>
+          <input
+            type="email"
+            matInput
+            placeholder="Email"
+            formControlName="email"
+          />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input
+            type="password"
+            matInput
+            placeholder="Password"
+            formControlName="password"
+          />
+        </mat-form-field>
+      </p>
+
+      <p *ngIf="error" class="error">
+        {{ error }}
+      </p>
+
+      <div class="button">
+        <button type="submit" mat-button>Login</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card> -->
+
+<div class="wrapper">
+  <div class="body">
+    <img
+      class="logo"
+      src="https://raw.githubusercontent.com/Manuel486/Store_Mega/main/images/logo.png"
+    />
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field>
+          <input
+            type="email"
+            matInput
+            placeholder="Email"
+            formControlName="email"
+          />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input
+            type="password"
+            matInput
+            outlined
+            placeholder="Password"
+            formControlName="password"
+          />
+        </mat-form-field>
+      </p>
+
+      <p *ngIf="error" class="error">
+        {{ error }}
+      </p>
+
+      <div class="button">
+        <button type="submit" mat-button>Login</button>
+      </div>
+      <p class="mt-3 letra-login">
+        ¿No tienes una cuenta?
+        <a routerLink="/auth/registro">Registrarse</a>
+      </p>
+      <a class="mt-3" routerLink="/auth/recovery">Recuperar contraseña</a>
+    </form>
+    <!-- <form>
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput autocomplete="off" type="email" />
+      </mat-form-field>
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput autocomplete="off" type="password" />
+      </mat-form-field>
+      <br />
+      <button class="ancho" mat-raised-button color="primary">Ingresar</button>
+      <p class="mt-3 letra-login">
+        ¿No tienes una cuenta?
+        <a routerLink="/auth/registro">Registrarse</a>
+      </p>
+      <a class="mt-3" routerLink="/recuperar-password">Recuperar contraseña</a>
+    </form> -->
+  </div>
+</div>

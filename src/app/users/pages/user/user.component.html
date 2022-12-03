@@ -1,0 +1,142 @@
+<div class="container">
+  <mat-toolbar>
+    <span>{{ this.data ? "Editar usuario" : "Nuevo Usuario" }}</span>
+    <mat-icon (click)="onClose()">close</mat-icon>
+  </mat-toolbar>
+
+  <div class="formulario">
+    <mat-card style="margin-top: 10px">
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="agregarUsuario()">
+          <mat-grid-list cols="4" rowHeight="90px" Style="width:900px">
+            <mat-grid-tile [colspan]="3" [rowspan]="1">
+              <h2>Detalles del Usuario</h2>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <!-- <h2>Agregar foto</h2> -->
+            </mat-grid-tile>
+            <!--usuario-->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="inputs">
+                <mat-label>Usuario</mat-label>
+                <input matInput formControlName="usuario" />
+              </mat-form-field>
+            </mat-grid-tile>
+            <!--nombre-->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="inputs">
+                <mat-label>Nombre</mat-label>
+                <input
+                  matInput
+                  autocomplete="off"
+                  formControlName="nombre"
+                  pattern="^[a-zA-Z ]+$"
+                />
+              </mat-form-field>
+            </mat-grid-tile>
+            <!--apellido-->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="inputs">
+                <mat-label>Apellido</mat-label>
+                <input
+                  matInput
+                  autocomplete="off"
+                  formControlName="apellido"
+                  pattern="^[a-zA-Z ]+$"
+                />
+              </mat-form-field>
+            </mat-grid-tile>
+            <!--foto-->
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <img
+                src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"
+                width="70%"
+              />
+              <img />
+            </mat-grid-tile>
+            <!--Rol-->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="inputs">
+                <mat-label>Rol</mat-label>
+                <mat-select formControlName="rol">
+                  <mat-option *ngFor="let item of rol" [value]="item">
+                    {{ item }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <!--email-->
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <mat-form-field class="inputs">
+                <mat-label>Email</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  autocomplete="off"
+                  formControlName="email"
+                  pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+                />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <!--telefono-->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="inputs">
+                <mat-label>telefono</mat-label>
+                <input
+                  type="tel"
+                  maxlength="9"
+                  minlength="9"
+                  matInput
+                  formControlName="telefono"
+                />
+              </mat-form-field>
+            </mat-grid-tile>
+            <!--sexo-->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field>
+                <mat-label>Sexo</mat-label>
+                <mat-select formControlName="sexo">
+                  <mat-option *ngFor="let sexo of sexo" [value]="sexo">
+                    {{ sexo }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <!--fecha-->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="inputs">
+                <mat-label>Fecha</mat-label>
+                <input type="date" matInput formControlName="fecha" />
+              </mat-form-field>
+            </mat-grid-tile>
+            <!--seleccionar foto-->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <!-- <a mat-raised-button>Seleccionar</a> -->
+            </mat-grid-tile>
+            <!--btn agregar-->
+            <mat-grid-tile [colspan]="3" [rowspan]="1">
+              <span class="example-spacer"></span>
+
+              <div class="button">
+                <button
+                  type="submit"
+                  mat-raised-button
+                  color="primary"
+                  [disabled]="form.invalid"
+                >
+                  {{ this.data ? "Editar" : "Crear" }}
+                </button>
+              </div>
+              <span class="example-spacer"></span>
+              <a mat-raised-button (click)="onClose()">Cancelar</a>
+              <span class="example-spacer"></span>
+            </mat-grid-tile>
+            <!--btn cancelar-->
+            <mat-grid-tile [colspan]="1" [rowspan]="1"> </mat-grid-tile>
+          </mat-grid-list>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
